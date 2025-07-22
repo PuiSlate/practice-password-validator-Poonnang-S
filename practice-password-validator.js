@@ -1,13 +1,22 @@
 const readline = require('readline-sync');
 
 function validPassword(password) {
-    const minlength = password.length >=8;
-    const hasUppercase = /[A-Z]/.test(password);
-    const hasNumber = /\d/.test(password);
-    return minlength && hasUppercase &&hasNumber;
+let hasUpperCase = false;
+ let hasNumber = false;
+ let length = password.length >= 8;
+
+for (let i = 0; i < password.length; i++) {
+        let char = password[i];
+        if (char >= 'A' && char <= 'Z') {
+            hasUppercase = true;
+        } 
+        if (char >= '0' && char <= '9') {
+            hasNumber = true;
+        }
 }
 
-
+   return length && hasUpperCase && hasNumber;
+}
 
 let password;
 do{
